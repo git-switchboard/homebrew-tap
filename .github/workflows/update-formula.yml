@@ -36,7 +36,7 @@ jobs:
             -e "s/{{SHA256_DARWIN_X64}}/$SHA256_DARWIN_X64/g" \
             -e "s/{{SHA256_LINUX_X64}}/$SHA256_LINUX_X64/g" \
             -e "s/{{SHA256_LINUX_ARM64}}/$SHA256_LINUX_ARM64/g" \
-            < Formula/template.rb > Formula/git-switchboard.rb
+            < templates/template.rb > Formula/git-switchboard.rb
 
       - name: Commit and push
         run: |
