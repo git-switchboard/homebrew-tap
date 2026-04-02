@@ -1,0 +1,47 @@
+name: Update Formula
+
+on:
+  repository_dispatch:
+    types: [release]
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download binaries and compute checksums
+        run: |
+          VERSION="${{ github.event.client_payload.version }}"
+          TAG="${{ github.event.client_payload.tag }}"
+          BASE_URL="https://github.com/git-switchboard/git-switchboard/releases/download/${TAG}"
+
+          for ASSET in git-switchboard-darwin-arm64 git-switchboard-darwin-x64 git-switchboard-linux-x64 git-switchboard-linux-arm64; do
+            curl -fsSL "$BASE_URL/$ASSET" -o "/tmp/$ASSET"
+          done
+
+          echo "SHA256_DARWIN_ARM64=$(sha256sum /tmp/git-switchboard-darwin-arm64 | awk '{print $1}')" >> "$GITHUB_ENV"
+          echo "SHA256_DARWIN_X64=$(sha256sum /tmp/git-switchboard-darwin-x64 | awk '{print $1}')" >> "$GITHUB_ENV"
+          echo "SHA256_LINUX_X64=$(sha256sum /tmp/git-switchboard-linux-x64 | awk '{print $1}')" >> "$GITHUB_ENV"
+          echo "SHA256_LINUX_ARM64=$(sha256sum /tmp/git-switchboard-linux-arm64 | awk '{print $1}')" >> "$GITHUB_ENV"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+      - name: Render formula
+        run: |
+          sed \
+            -e "s/{{VERSION}}/$VERSION/g" \
+            -e "s/{{SHA256_DARWIN_ARM64}}/$SHA256_DARWIN_ARM64/g" \
+            -e "s/{{SHA256_DARWIN_X64}}/$SHA256_DARWIN_X64/g" \
+            -e "s/{{SHA256_LINUX_X64}}/$SHA256_LINUX_X64/g" \
+            -e "s/{{SHA256_LINUX_ARM64}}/$SHA256_LINUX_ARM64/g" \
+            < Formula/template.rb > Formula/git-switchboard.rb
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Formula/git-switchboard.rb
+          git commit -m "Update git-switchboard to $VERSION"
+          git push
