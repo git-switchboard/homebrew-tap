@@ -1,26 +1,26 @@
 class GitSwitchboard < Formula
   desc "Interactive TUI for browsing and checking out git branches"
   homepage "https://github.com/git-switchboard/git-switchboard"
-  version "0.0.1-alpha.3"
+  version "0.0.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.1-alpha.3/git-switchboard-darwin-arm64"
-      sha256 "f55d2c2d9d30d3b8964c6634f3824924acd5e8068d6a4fc1b12bab0c6c3590c4"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.2/git-switchboard-darwin-arm64"
+      sha256 "e08ba16cc38354c0a8e8f10d57f39bef7144246a30c86759fd5a5ae0ccc8e5a0"
     else
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.1-alpha.3/git-switchboard-darwin-x64"
-      sha256 "bda9b0b95da78ff8f9d6f7c9feb7f9d81f898dc2be597919838f172034df36dc"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.2/git-switchboard-darwin-x64"
+      sha256 "af3596e09f500766d2f0855b952d5926f9d4306b6d71a2d1cdd6723e305e6a01"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.1-alpha.3/git-switchboard-linux-arm64"
-      sha256 "4a046c4088028ac03a6f283d1c6eb9eeee7707946824cb80fc840b93a4d3c260"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.2/git-switchboard-linux-arm64"
+      sha256 "d1dea9a91beb8d2c781fcfc02ef76811012e6c491a6d47e4617aa26d39405720"
     else
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.1-alpha.3/git-switchboard-linux-x64"
-      sha256 "e76a1392125b3374ab454ecfa9d78590ff2b5d3974be4d259657fd490b7a23b5"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%400.0.2/git-switchboard-linux-x64"
+      sha256 "0b79faf8f69c73258d73d6513019747eb078a2682b006efd2848c8fd30cc043e"
     end
   end
 
