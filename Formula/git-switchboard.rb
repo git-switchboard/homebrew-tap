@@ -1,26 +1,26 @@
 class GitSwitchboard < Formula
   desc "Interactive TUI for browsing and checking out git branches"
   homepage "https://github.com/git-switchboard/git-switchboard"
-  version "0.0.2-hotfix.1"
+  version "0.1.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.0.2/git-switchboard-darwin-arm64"
-      sha256 "e08ba16cc38354c0a8e8f10d57f39bef7144246a30c86759fd5a5ae0ccc8e5a0"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.1.0/git-switchboard-darwin-arm64"
+      sha256 "124b5fb8b13b153407c23fc640391b4a0d8d0f11c738730625356895cf0cc0a9"
     else
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.0.2/git-switchboard-darwin-x64"
-      sha256 "af3596e09f500766d2f0855b952d5926f9d4306b6d71a2d1cdd6723e305e6a01"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.1.0/git-switchboard-darwin-x64"
+      sha256 "b34cc8e6a0b29113a1a5b7132ab8bbfd296847b3bdcd2aa9d6f1d7f6e0ba149a"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.0.2/git-switchboard-linux-arm64"
-      sha256 "d1dea9a91beb8d2c781fcfc02ef76811012e6c491a6d47e4617aa26d39405720"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.1.0/git-switchboard-linux-arm64"
+      sha256 "167ea9840e4af331e4a43f99bc6cadacb127bfe097e8bab1df76be8159c2ebbd"
     else
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.0.2/git-switchboard-linux-x64"
-      sha256 "0b79faf8f69c73258d73d6513019747eb078a2682b006efd2848c8fd30cc043e"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v0.1.0/git-switchboard-linux-x64"
+      sha256 "73aff12b6d67a9f91bc6c2951c09d496838da4ba857457893ddcd0ae54363e86"
     end
   end
 
