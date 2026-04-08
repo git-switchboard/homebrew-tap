@@ -6,20 +6,20 @@ class GitSwitchboard < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%40{{VERSION}}/git-switchboard-darwin-arm64"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v{{VERSION}}/git-switchboard-darwin-arm64"
       sha256 "{{SHA256_DARWIN_ARM64}}"
     else
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%40{{VERSION}}/git-switchboard-darwin-x64"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v{{VERSION}}/git-switchboard-darwin-x64"
       sha256 "{{SHA256_DARWIN_X64}}"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%40{{VERSION}}/git-switchboard-linux-arm64"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v{{VERSION}}/git-switchboard-linux-arm64"
       sha256 "{{SHA256_LINUX_ARM64}}"
     else
-      url "https://github.com/git-switchboard/git-switchboard/releases/download/git-switchboard%40{{VERSION}}/git-switchboard-linux-x64"
+      url "https://github.com/git-switchboard/git-switchboard/releases/download/v{{VERSION}}/git-switchboard-linux-x64"
       sha256 "{{SHA256_LINUX_X64}}"
     end
   end
